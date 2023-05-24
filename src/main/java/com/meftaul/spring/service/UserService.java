@@ -21,14 +21,14 @@ public class UserService {
 
     public User findById(Long userId) {
         return userList.stream()
-                .filter(u -> u.getId().equals(userId))
+                .filter(u -> u.id().equals(userId))
                 .findFirst()
                 .orElseThrow(() -> new UserNotFoundException(String.format("User with id %s is not found", userId)));
     }
 
     public User findByIdV1(Long userId) {
         for (User user: userList) {
-            if (user.getId().equals(userId)) {
+            if (user.id().equals(userId)) {
                 return user;
             }
         }
@@ -37,6 +37,6 @@ public class UserService {
     }
 
     public boolean existsById(Long userId) {
-        return userList.stream().anyMatch(u -> u.getId().equals(userId));
+        return userList.stream().anyMatch(u -> u.id().equals(userId));
     }
 }
