@@ -36,4 +36,7 @@ public class UserService {
         throw new UserNotFoundException(String.format("User with id %s is not found", userId));
     }
 
+    public boolean existsById(Long userId) {
+        return userList.stream().anyMatch(u -> u.getId().equals(userId));
+    }
 }
