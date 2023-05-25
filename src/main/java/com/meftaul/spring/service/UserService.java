@@ -2,9 +2,11 @@ package com.meftaul.spring.service;
 
 import com.meftaul.spring.domain.User;
 import com.meftaul.spring.exception.UserNotFoundException;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class UserService {
 
     private final List<User> userList = List.of(
