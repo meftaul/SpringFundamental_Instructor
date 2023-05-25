@@ -10,7 +10,7 @@ public class MyWebAppInitializerV2 extends AbstractAnnotationConfigDispatcherSer
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        Class arr[] = {AppConfig.class};
+        Class arr[] = {WebMvcConfig.class};
         return arr;
     }
 
