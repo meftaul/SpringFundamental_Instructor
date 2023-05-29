@@ -22,10 +22,17 @@ public class UserService {
     }
 
     public User findById(Long userId) {
-        return userList.stream()
+        User user = userList.stream()
                 .filter(u -> u.id().equals(userId))
                 .findFirst()
                 .orElseThrow(() -> new UserNotFoundException(String.format("User with id %s is not found", userId)));
+
+        anotherFunction();
+        return user;
+    }
+
+    private void anotherFunction() {
+        System.out.println("Test");
     }
 
     public User findByIdV1(Long userId) {

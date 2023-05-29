@@ -11,16 +11,21 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.List;
 
+//region annotations
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = "com.meftaul.spring")
+//endregion
 public class WebMvcConfig implements WebMvcConfigurer {
 
+    //region Add message converter
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(new MappingJackson2HttpMessageConverter());
     }
+    //endregion
 
+    //region Add view resolver
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -28,4 +33,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         viewResolver.setSuffix(".jsp");
         registry.viewResolver(viewResolver);
     }
+    //endregion
+
 }
